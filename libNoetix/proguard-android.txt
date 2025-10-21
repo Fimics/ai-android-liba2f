@@ -1,0 +1,4 @@
+-dontwarn android.support.**
+-dontwarn com.google.android.gms.**
+-dontwarn com.google.firebase.**
+

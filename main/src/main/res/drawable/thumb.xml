@@ -1,0 +1,6 @@
+<!-- res/drawable/thumb.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#0048B3"/> <!-- 滑块颜色 -->
+    <corners android:radius="35dp"/> <!-- 圆角效果 -->
+    <size android:width="70dp" android:height="70dp"/> <!-- 滑块尺寸 -->
+</shape>

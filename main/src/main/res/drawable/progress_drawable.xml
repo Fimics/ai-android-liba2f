@@ -1,0 +1,15 @@
+<!-- res/drawable/progress_drawable.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#E0E0E0"/> <!-- 背景颜色 -->
+            <corners android:radius="8dp"/> <!-- 圆角效果 -->
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <shape>
+            <solid android:color="#76D7C4"/> <!-- 进度条颜色 -->
+            <corners android:radius="8dp"/> <!-- 圆角效果 -->
+        </shape>
+    </item>
+</layer-list>

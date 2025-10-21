@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.noetix">
+
+    <!-- 仅保留一份，去掉重复声明 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission
+        android:name="android.permission.INSTALL_PACKAGES"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
+    <!-- 必须声明 android:allowBackup & android:label，否则打包会报警告 -->
+    <application>
+
+        <activity
+            android:name="com.noetix.core.downloader.DownloadActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_download"
+            android:theme="@style/Theme.SwipeCards" />
+
+        <service android:name="com.azhon.appupdate.service.DownloadService" />
+
+        <service
+            android:name="com.noetix.utils.AdbCommandService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <provider
+            android:name="com.azhon.appupdate.config.AppUpdateFileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/app_update_file" />
+        </provider>
+
+        <activity
+            android:name="com.azhon.appupdate.view.UpdateDialogActivity"
+            android:theme="@style/AppUpdate.UpdateDialog" />
+
+        <receiver
+            android:name="com.azhon.appupdate.util.InstallResultReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.noetix.sdk.INSTALL_COMPLETE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101010">
+
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="400dp"
+        android:layout_height="240dp"
+        android:text="配置文件更新中..."
+        android:textColor="#F4F2F2"
+        android:textSize="35sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="400dp"
+        android:layout_height="240dp"
+        android:textColor="#121212"
+        android:textSize="20sp"
+        android:gravity="start"
+        android:paddingTop="60dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/bg_download"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
