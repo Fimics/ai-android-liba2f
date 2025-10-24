@@ -36,6 +36,8 @@ dependencyResolutionManagement {
 rootProject.name = "ai-android-liba2f"
 include(":main")
 include(":libNoetix")
+// 添加对 ai-native-sdk 项目的包含
+//includeBuild("../ai-native-sdk")  // 假设 ai-native-sdk 在 ai-android-liba2f 的上一级目录
 
 
 
