@@ -10,9 +10,9 @@ plugins {
 
 android {
     compileSdk = 35
-    namespace = "com.libnoetix.sample"
+    namespace = "com.libnoetix.demo"
     defaultConfig {
-        applicationId = "com.libnoetix.sample"
+        applicationId = "com.libnoetix.demo"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = libs.versions.versionCode.get().toInt()

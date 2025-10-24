@@ -12,12 +12,23 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_test"
+        android:id="@+id/btn_chat"
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:textSize="40dp"
         android:textColor="@color/colorPrimary"
-        android:text="测试"
+        android:text="聊天模式"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_track"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:textSize="40dp"
+        android:textColor="@color/colorPrimary"
+        android:text="随动模式"
         />
 
 

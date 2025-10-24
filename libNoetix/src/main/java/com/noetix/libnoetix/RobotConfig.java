@@ -14,7 +14,7 @@ public class RobotConfig {
     private String uAppKey;    // 新增字段
     private String uChannel;   // 新增字段
     private float zeroDuration; // 新增字段
-    private String neckType;
+    private int neckType;
 
     private RobotConfig(Builder builder) {
         this.activity = builder.activity;
@@ -43,7 +43,7 @@ public class RobotConfig {
         private String uAppKey = "";    // 默认值为空字符串
         private String uChannel = "";   // 默认值为空字符串
         private float zeroDuration = 5f; // 默认值为0
-        private String neckType;
+        private int neckType;
 
         public Builder(Activity activity) {
             this.activity = activity;
@@ -100,7 +100,7 @@ public class RobotConfig {
             return this;
         }
 
-        public Builder setNeckType(String neckType) {
+        public Builder setNeckType(int neckType) {
             this.neckType = neckType;
             return this;
         }
@@ -123,7 +123,7 @@ public class RobotConfig {
     public String getUChannel() { return uChannel; }     // 新增getter
     public float getZeroDuration() { return zeroDuration; } // 新增getter
 
-    public String getNeckType() {
+    public int getNeckType() {
         return neckType;
     }
 

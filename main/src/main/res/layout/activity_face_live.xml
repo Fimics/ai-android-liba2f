@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IP与端口"
+        style="@style/LiveButtonStyle_small"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:text="1. 请在 iPad或iPhone 上打开 Live Link Face，\n2. 然后点击 Live Link Face 左上角的设置按钮进入设置界面，\n3. 在设置页面选择 流送 选项卡 下的 Live Link，\n4. 在 Live Link 页面中，点击添加目标 把屏幕上对应的ip地址和 端口输入对应的输入框内\n5. 回到 Live link Face 主页面 ，点击 屏幕顶端的 LIVE 按钮，即可体验\n"
+        android:layout_gravity="center|bottom"
+        android:gravity="left"
+        style="@style/LiveButtonStyle_small"
+       />
+
+
+
+</LinearLayout>

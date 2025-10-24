@@ -68,6 +68,7 @@ class NativeApiImpl implements INativeApi {
         this.robotConfig = robotConfig;
         this.mCan = robotConfig.getCan();
         this.mSerialPort = robotConfig.getSerialPort();
+        this.mNeckStructure = robotConfig.getNeckType();
         AdbCommandService.Companion.start(AppGlobals.getApplication());
 
         KLog.d("sdk_version","1.0.09");
@@ -220,31 +221,12 @@ class NativeApiImpl implements INativeApi {
 
     @Override
     public void setNeckRadiosDuration(float[] radios, float duratin_sec) {
-
-//        if (SDKContext.isEnableLog){
-//            SDKLog.d(TAG,"setNeckRadiosDuration neckType"+this.mNeckStructure);
-//        }
-//        if (this.mNeckStructure==NeckStructure.LING_HU){
-//            NoetixJNI.setNeckRadiosDurationParallel(radios, duratin_sec);
-//        }else {
-//            NoetixJNI.setNeckRadiosDuration(radios, duratin_sec);
-//        }
-        KLog.d(TAG,"setNeckRadiosDuration -> duratin_sec "+duratin_sec +"  mNeckStructure "+mNeckStructure);
         NoetixJNI.setNeckRadiosDurationVersion(radios,duratin_sec,mNeckStructure);
     }
 
     @Override
     public void setNeckRadios(float[] radios) {
-
-//        if (SDKContext.isEnableLog){
-//            SDKLog.d(TAG,"setNeckRadios neckType"+this.mNeckStructure);
-//        }
         NoetixJNI.setNeckRadiosVersion(radios,mNeckStructure);
-//        if (this.mNeckStructure==NeckStructure.LING_HU){
-//           NoetixJNI.setNeckRadiosParallel(radios);
-//        }else {
-//            NoetixJNI.setNeckRadios(radios);
-//        }
     }
 
     @Override

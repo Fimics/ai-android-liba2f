@@ -33,7 +33,7 @@ dependencyResolutionManagement {
 }
 
 
-rootProject.name = "android_lib_noetix"
+rootProject.name = "ai-android-liba2f"
 include(":main")
 include(":libNoetix")
 
