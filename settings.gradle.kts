@@ -36,8 +36,12 @@ dependencyResolutionManagement {
 rootProject.name = "ai-android-liba2f"
 include(":main")
 include(":libNoetix")
-// 添加对 ai-native-sdk 项目的包含
-//includeBuild("../ai-native-sdk")  // 假设 ai-native-sdk 在 ai-android-liba2f 的上一级目录
 
 
 
+//android 项目 ai-android-liba2f 和c++ 项目ai-native-sdk 在同一目录下，ai-android-liba2f 下的module (libNoetix) 通过怎么下gradle.kts 引用ai-native-sdk 源码，
+// 可以编译通过，但怎么在libNoetix 显示ai-native-sdk源码，怎么debug ai-native-sdk的源码
+
+// 添加 ai-native-sdk 作为源码依赖
+include(":ai-native-sdk")
+project(":ai-native-sdk").projectDir = file("../ai-native-sdk")

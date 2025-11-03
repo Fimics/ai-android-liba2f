@@ -18,6 +18,11 @@ android {
     compileSdk = libs.versions.compileSdk.get().toInt()
     buildToolsVersion = libs.versions.buildVersion.get()
 
+// 1. 让 Android Studio 把 ai-native-sdk 当成 native 源码根（断点靠它）
+//    sourceSets["main"].jni.srcDirs(rootProject.file("../../ai-native-sdk"))
+
+    // 让 AS 索引到源码（断点靠它）
+    sourceSets["main"].jni.srcDirs(rootProject.file("../../ai-native-sdk"))
     // 合并后的 externalNativeBuild（只保留一个，指向 ai-native-sdk）
     externalNativeBuild {
         cmake {
@@ -27,6 +32,8 @@ android {
             version = "3.22.1"
             // 可选：如果需要在这里打印，用局部常量访问属性
             println("AI-Native-SDK CMake 路径: ${sdkCmakePath.absolutePath}")
+
+
         }
     }
 
@@ -38,7 +45,11 @@ android {
         // 原生构建的编译参数配置（与顶层 externalNativeBuild 职责不同，保留）
         externalNativeBuild {
             cmake {
-                arguments("-DANDROID_STL=c++_shared", "-DANDROID_TOOLCHAIN=clang")
+                cppFlags += "-std=c++17"
+                arguments += listOf(
+                    "-DANDROID_STL=c++_shared",
+                    "-DCMAKE_VERBOSE_MAKEFILE=ON"
+                )
             }
         }
 
@@ -74,6 +85,7 @@ android {
     sourceSets {
         getByName("main") {
             java.srcDirs("src/main/java")
+            jniLibs.srcDirs("../../ai-native-sdk")          // 如果以后有预编译 .so
             res {
                 srcDirs("src/main/res")
             }

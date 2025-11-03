@@ -61,7 +61,7 @@ public class SplashActivity extends AppCompatActivity {
                 .setZeroDuration(5.0f)
                 .setUAppKey("")
                 .setUChannel("")
-                .setNeckType(2)
+                .setNeckType(0)
                 .setExt("")
                 .build();
         IRobotSDKManager.getInstance().init(robotConfig);
