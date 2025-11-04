@@ -93,6 +93,10 @@ android {
     namespace = "com.noetix"
 }
 
+group = "com.lib.noetix"   // 与你在 projectA 里 implementation 时写的 group 完全一致
+version = "1.0"           // 与你在 projectA 里 implementation 时写的 version 完全一致
+
+
 dependencies {
     implementation(fileTree(mapOf("include" to listOf("*.jar", "*.aar"), "dir" to "libs")))
     implementation(libs.material)
