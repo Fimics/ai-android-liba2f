@@ -18,12 +18,6 @@ android {
     compileSdk = libs.versions.compileSdk.get().toInt()
     buildToolsVersion = libs.versions.buildVersion.get()
 
-// 1. 让 Android Studio 把 ai-native-sdk 当成 native 源码根（断点靠它）
-//    sourceSets["main"].jni.srcDirs(rootProject.file("../../ai-native-sdk"))
-
-    // 让 AS 索引到源码（断点靠它）
-    sourceSets["main"].jni.srcDirs(rootProject.file("../../ai-native-sdk"))
-    // 合并后的 externalNativeBuild（只保留一个，指向 ai-native-sdk）
     externalNativeBuild {
         cmake {
             // 1. 先定义局部常量存储路径，再赋值给 path（避免智能转换错误）
@@ -32,8 +26,6 @@ android {
             version = "3.22.1"
             // 可选：如果需要在这里打印，用局部常量访问属性
             println("AI-Native-SDK CMake 路径: ${sdkCmakePath.absolutePath}")
-
-
         }
     }
 
@@ -84,8 +76,15 @@ android {
 
     sourceSets {
         getByName("main") {
-            java.srcDirs("src/main/java")
-            jniLibs.srcDirs("../../ai-native-sdk")          // 如果以后有预编译 .so
+//            jni.srcDirs(
+//                "../../ai-native-sdk",
+//                "../../ai-native-sdk/common_modules",
+//                "../../ai-native-sdk/jni",
+//                "../../ai-native-sdk/audio2face",
+//                "../../ai-native-sdk/blendshape2action",
+//                "../../ai-native-sdk/motor_driver",
+//                "../../ai-native-sdk/robot_config_loader"
+//            )
             res {
                 srcDirs("src/main/res")
             }
